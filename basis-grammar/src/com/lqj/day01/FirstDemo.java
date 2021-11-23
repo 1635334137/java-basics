@@ -1,6 +1,6 @@
 package com.lqj.day01;
 
-public class firstdemo {
+public class FirstDemo {
     public static void main(String[] args) {
         System.out.println("基本类型：byte "+Byte.SIZE+"bit");
         System.out.println("min_value="+Byte.MIN_VALUE);
