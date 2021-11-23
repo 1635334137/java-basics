@@ -1,0 +1,26 @@
+MQ简介
+    是一种进程间通信或同一进程的不同线程间的通信方式，软件的软件的贮列用来处理一系列的输入，通常是来自用户。
+消息队列提供了异步的通信协议，每一个贮列中的纪录包含详细说明的数据，包含发生的时间，输入设备的种类，以及特定的输入参数。
+
+角色：
+    Producer：消息生产者，负责生产和发送消息到Broker；
+    Broker：消息处理中心，负责消息存储、确认、重试等；
+    Consumer：消息消费中心，负责从Broker中获取消息并处理。
+
+RabbitMQ
+使用协议：AMQP
+优点：应用耦合、异步处理、流量削峰
+
+安装使用：
+1.下载Erlang并安装
+2.添加Erlang到系统环境变量
+3.下载RabbitMQ并安装
+4.启用RabbitMQ可视化管理插件
+    4.1.进入MQ安装目录下的sbin目录，在地址栏中输入cmd进入命令行窗口
+    4.2.rabbitmq-plugins.bat list
+    4.3.rabbitmq-plugins.bat enable rabbitmq_management
+    4.4.浏览器访问地址http://127.0.0.1:15672/
+    4.5.默认账号密码：guest
+    4.6.创建users、以及virtual Hosts，为主机添加用户/权限为administrator
+    4.7.Java代码管理队列
+
