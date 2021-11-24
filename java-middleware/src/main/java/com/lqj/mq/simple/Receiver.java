@@ -1,4 +1,4 @@
-package com.lqj.mq;
+package com.lqj.mq.simple;
 
 import com.rabbitmq.client.*;
 

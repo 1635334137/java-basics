@@ -1,4 +1,4 @@
-package com.lqj.mq;
+package com.lqj.mq.simple;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -9,6 +9,7 @@ import java.util.concurrent.TimeoutException;
 
 /**
  * 生产者
+ * 简单队列
  */
 public class Send {
     public static final String QUEUE_NAME="hello";
