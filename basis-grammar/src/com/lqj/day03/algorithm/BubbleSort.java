@@ -2,6 +2,10 @@ package com.lqj.day03.algorithm;
 
 import java.util.Arrays;
 
+/**
+ * 冒泡排序
+ * 特点：每次循环查找到最大值
+ */
 public class BubbleSort {
     public static void main(String[] args) {
         //1.获得数组数据
