@@ -27,15 +27,20 @@ public class Receiver {
             //4.指定接收消息的队列
             channel.queueDeclare(QUEUE_NAME, false, false, false, null);
             //5.接收消息
-            Consumer consumer = new DefaultConsumer(channel){
-                @Override
-                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                    String message = new String(body,"utf-8");
-                    System.out.println("消费方收到消息--->"+message);
-                }
+//            Consumer consumer = new DefaultConsumer(channel){
+//                @Override
+//                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+//                    String message = new String(body,"utf-8");
+//                    System.out.println("消费方收到消息--->"+message);
+//                }
+//            };
+            //lambda写法
+            DeliverCallback deliverCallback = (consumerTag,delivery)->{
+                String message = new String(delivery.getBody(),"utf-8");
+                System.out.println("消费方收到消息--->"+message);
             };
             //6.监听指定队列
-            channel.basicConsume(QUEUE_NAME,true,consumer);
+            channel.basicConsume(QUEUE_NAME,true,deliverCallback,consumerTag->{});
         } catch (Exception e) {
             e.printStackTrace();
         }
